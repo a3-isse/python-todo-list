@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do App</title>
+</head>
+<body>
+
+    <h1>My To-Do List</h1>
+
+    <form method="POST" action="/add">
+        <input type="text" name="title" placeholder="New task" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+<<<<<<< HEAD
+   <ul>
+{% for task in tasks %}
+    <li>
+        {{ task.title }}
+
+        {% if not task.completed %}
+            <a href="/complete/{{ task.id }}">✔ Complete</a>
+        {% else %}
+            ✅
+        {% endif %}
+
+        <a href="/delete/{{ task.id }}">❌ Delete</a>
+    </li>
+{% endfor %}
+</ul>
+=======
+    <ul>
+    {% for task in tasks %}
+        <li>
+            {{ task.title }}
+            {% if task.completed %}
+                ✅
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+>>>>>>> da208206e6f61fd4d3ba353b315ebf664df483b0
+
+</body>
+</html>
