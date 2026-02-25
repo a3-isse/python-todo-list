@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 📝 Python To-Do List
 📌 Overview
 
@@ -41,3 +42,7 @@ python-todo-list/
 🎯 Purpose
 
 Built as a foundational backend project to strengthen Python and database integration skills.
+=======
+# python-todo-list
+Simple CLI To-Do List application built in Python
+>>>>>>> 21d1ff728d16c02cc7a5aa3206170dc9e19e2687
