@@ -2,44 +2,127 @@
 <html>
 <head>
     <title>To-Do App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding-top: 60px;
+        }
+
+        .container {
+            background: white;
+            width: 500px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .actions a {
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .complete-btn {
+            color: green;
+        }
+
+        .delete-btn {
+            color: red;
+        }
+
+        .complete-btn:hover {
+            text-decoration: underline;
+        }
+
+        .delete-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
 
+<div class="container">
     <h1>My To-Do List</h1>
 
     <form method="POST" action="/add">
         <input type="text" name="title" placeholder="New task" required>
-        <button type="submit">Add Task</button>
+        <button type="submit">Add</button>
     </form>
 
-<<<<<<< HEAD
-   <ul>
-{% for task in tasks %}
-    <li>
-        {{ task.title }}
-
-        {% if not task.completed %}
-            <a href="/complete/{{ task.id }}">✔ Complete</a>
-        {% else %}
-            ✅
-        {% endif %}
-
-        <a href="/delete/{{ task.id }}">❌ Delete</a>
-    </li>
-{% endfor %}
-</ul>
-=======
     <ul>
-    {% for task in tasks %}
+        {% for task in tasks %}
         <li>
-            {{ task.title }}
-            {% if task.completed %}
-                ✅
-            {% endif %}
+            <span class="{% if task.completed %}completed{% endif %}">
+                {{ task.title }}
+            </span>
+
+            <div class="actions">
+                {% if not task.completed %}
+                    <a class="complete-btn" href="/complete/{{ task.id }}">✔ Complete</a>
+                {% else %}
+                    <span style="color: green;">✔ Done</span>
+                {% endif %}
+
+                <a class="delete-btn" href="/delete/{{ task.id }}">✖ Delete</a>
+            </div>
         </li>
-    {% endfor %}
+        {% endfor %}
     </ul>
->>>>>>> da208206e6f61fd4d3ba353b315ebf664df483b0
+</div>
 
 </body>
 </html>

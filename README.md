@@ -1,48 +1,112 @@
-<<<<<<< HEAD
-📝 Python To-Do List
-📌 Overview
+# Flask To-Do List App
 
-A command-line To-Do List application built in Python.
+A simple To-Do web application built using:
 
-This project is designed to practice:
+- Python
+- Flask
+- MySQL
+- OOP (Class Inheritance)
+- Exception Handling
+- Unit Testing
 
-Core Python fundamentals
+---
 
-Structured program flow
+## Features
 
-Database integration
+- Add new tasks
+- Mark tasks as complete
+- Delete tasks
+- View all tasks ordered by newest first
+- Database error handling
+- Object-oriented structure
+- Basic unit test included
 
-Git version control
+---
 
-🚀 Features
+## Project Structure
 
-Add new tasks
-
-Store tasks in a database
-
-Persistent task storage
-
-🛠 Tech Stack
-
-Python 3.x
-
-MySQL
-
-mysql-connector-python
-
-▶️ How to Run
-python main.py
-
-📂 Project Structure
-python-todo-list/
+```
+project/
 │
 ├── main.py
+├── models.py
+├── templates/
+│   └── index.html
 ├── README.md
+└── tests/
+    └── test_tasks.py
+```
 
-🎯 Purpose
+---
 
-Built as a foundational backend project to strengthen Python and database integration skills.
-=======
-# python-todo-list
-Simple CLI To-Do List application built in Python
->>>>>>> 21d1ff728d16c02cc7a5aa3206170dc9e19e2687
+## Database Setup
+
+1. Create database:
+
+```sql
+CREATE DATABASE todo_app;
+USE todo_app;
+
+CREATE TABLE tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    completed BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+---
+
+## How To Run
+
+1. Activate virtual environment:
+
+```bash
+source .venv/Scripts/activate
+```
+
+2. Run application:
+
+```bash
+python main.py
+```
+
+3. Open browser:
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## OOP Design
+
+The application uses:
+
+- `Database` base class
+- `Task` class that inherits from `Database`
+- CRUD methods implemented inside `Task`
+
+---
+
+## Exception Handling
+
+All database operations are wrapped in try/except blocks to prevent application crashes and provide error logging.
+
+---
+
+## Unit Testing
+
+A basic unit test is included to test task creation functionality.
+
+Run tests with:
+
+```bash
+python -m unittest test_task.py
+```
+
+---
+
+## Author
+
+Ahmed Isse
